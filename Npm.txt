@@ -1,0 +1,159 @@
+Working with NPM 
+------------------------------
+NodePackageManager 
+A package manager is folder which is collection of reusable code blocks and package.json File
+A package.json contains the dependencies and automates the installation and etc \
+NPM Manages the Package Regsitry for NodeJS
+A developer can publish his code to be reused by others by using npm 
+
+DeveloperCode --> Published through NPM Regsitry --> Consumed by other devlopers 
+
+npm will be installed with NodeJS automatically 
+u can check it by  npm -v command at command prompt 
+•	In windows the global installed Packages will saved at  user/appdata/roaming folder 
+Commands used in NPM
+-------------------------------------
+npm help 
+
+npm command -h
+	Shows the usage of the specified command and syntax
+
+npm help-serach
+	shows the search results for a specific text 
+	Syn : npm help-Search urText
+		it generates the frequent sear 
+	npm help CommandName 
+		Opens a browser and shows details about the command 
+
+
+Package.Json File 
+----------------------
+* Manages the dependencies of the application 
+		Ex: we can specify which version of express does our project depends on 
+* lets us to add scripts helps in initial build of teh project 
+
+In a project folder no need create package.json fiel manually we can create it by using npm 
+
+npm init 
+	Creates a package.json file in the current folder 
+npm init --yes 
+npm inti -y 
+	Creates a package.json file in the current folder with default property values for licence, author, keywords,..
+
+npm config set init-author-name "Name"
+
+npm set init-author-name "Name"
+	sets the initial value for authorname 
+
+npm config get init-author-name
+
+npm get init-author-name
+	shows the intial author name 
+
+npm config delete init-auth-name
+	deletes the initial values for authorname 
+	* config is must for deleteing the initial values 
+
+npm install packageName 
+npm i packagename
+	installs the package name into Nodemodules folder
+	
+npm install packageName --save
+	installs the package name into Nodemodules folder and also updates th depency in package.json file 
+
+npm install packagename --save-dev 
+	installs the package as a development dependency and not a production dependency , updates the package.json file with dependency
+
+npm uninstall packagename --save 
+npm uninstall packagename --save-dev 
+
+npm install packagename -g 
+	installs the package globally 
+	* Will not be shown in the nodejsfolder 
+	* Appdata folder it will install them 
+
+
+
+npm uninstall packagename -g
+npm remove packagename -g
+npm rm packagename -g
+	Removes the globally installed packages 
+npm list 
+	Shows the packages installed 
+npm list --depth 1
+npm list --depth 0
+
+npm list --globaly true --depth 0
+
+
+* --yes = -y ,   install = i; --save = -S  , --save-dev = -D
+
+Version 
+--------------
+Major.Minor.Patch 
+Major - changed when there are new features witha break of some old fetuares 
+Minor - changed when new were added with out break in the current fetures 
+Pacth - when any debugging occured , bug fixed 
+
+npm install packagename@version
+	installs a specific package with specified version 
+npm install package@major.minor
+	installs a pcakge with specified version and latest patch 
+npm install package@mojor
+	installs a pcakge with specified major and latest minor, patch 
+ 
+	dispalys the globally installed packages 
+
+if we have package.json and we want install the packages based on th list from package.json file use
+		npm install 
+in the package.json file at version 
+"^4.4.1" - the npm install command installs the latest minor and patch version 
+
+"~4.4.1" - installs only the latest patch version 
+
+
+npm update 
+	updates all the pcakcages to the latest version 
+npm update pckgName
+	updates the specified package to the latest version 
+npm upate -g 
+	updates all the global packages to the latest 
+npm update -g packageName
+	updates specified global package 
+
+
+
+npm prune 
+	removes all the extraneous packages from the nodeModules folder  
+	* packages folders are in nodemodules folder but no dependency in package.Json file i.e the packages which are not required for the application now
+
+
+In package.JSON file scripts section is used to command for start our project
+
+Myproj : node app/index.js 
+Start : node app/index.js 
+
+“scripts “:{
+“Start” : “node app/index.js”
+}
+
+Now at command prompt of the application folder type  - npm start 
+Start is built in command 
+For user created command s 
+“scripts “:{
+“Build” : “node app/index.js”
+}
+In the command prompt type – node run build 
+
+Ex for executing more than one command 
+“scripts “:{
+“Build” : “node app/index.js”,
+“Test”:”node test.js”,
+“start” : “npm run build && npm test ”
+}
+At command prompt – node start 
+	Will execute build , test , start 
+
+Activity :
+New folder – create index.html, welcome to my application , 
+Install bootstrop , jquery using npm 
